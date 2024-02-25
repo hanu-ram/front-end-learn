@@ -9,5 +9,5 @@ function respond ()
 
 if ( myName != 'hanu' )
 {
-  console.log( true )
+  console.log( true );
 }
