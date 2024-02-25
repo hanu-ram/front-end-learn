@@ -2,7 +2,7 @@ let qty = 0;
 
 function showQty ()
 {
-  console.log( "Added Quantity: " + qty );
+  console.log( `Added Quantity: ${ qty } ` );
 }
 
 function addToCart ()
