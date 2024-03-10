@@ -9,7 +9,7 @@ let person1 = {
 };
 
 person1.name1 = 'Hanu';
-console.log( person1.salary );
+// console.log( person1.salary );
 
 function Person ( name )
 {
@@ -21,7 +21,7 @@ function Person ( name )
 
 "use strict";
 let x = this;
-console.log( "strict x " + x )
+// console.log( "strict x " + x )
 
 // "use strict";
 function fun2 ()
@@ -29,7 +29,7 @@ function fun2 ()
   return this;
 }
 
-console.log( `fun 2 ${ fun2() }` );
+// console.log( `fun 2 ${ fun2() }` );
 const person = {
   firstName: "John",
   lastName: "Doe",
@@ -39,3 +39,58 @@ const person = {
     this.language = lm;
   }
 };
+
+
+/*------------------------------- Constructors -------------------------------- */
+
+function Book(name, author, category) {
+  this.name = name;
+  this.author = author;
+  this.category = category;
+  this.changeName = function (name) {
+    this.name = name;
+  }
+}
+
+const book1 = new Book('Story of Hanu', 'Hanu', 'Adventure');
+
+book1.func1 = function () {
+  return this.name;
+}
+// console.log(book1.func1());
+book1.price = 200;
+book1.changeName('Story of Hanumanth');
+// console.log(book1.name);
+
+// -------------------------------Object Iterables -------------------------------
+
+for (const x of book1.author) {
+  // console.log(x)
+}
+
+let stringify = JSON.stringify(book1);
+let b2 = JSON.parse(stringify);
+
+
+//-----------------------------Object Shortcuts ------------------------------------
+const exampleObject = {
+  variableInt : 3244,
+  variableString : 'Hello'
+}
+
+let {variableInt, variableString} = exampleObject;
+console.log(variableInt + '  '+ variableString);
+
+const exampleObject2 = {
+  variableString,
+  /*
+  variableInt: variableInt
+   */
+  variableInt,
+  method1() {
+    console.log('Method Executed!');
+  }
+};
+console.log(exampleObject.variableInt);
+exampleObject2.method1();
+

@@ -1,5 +1,12 @@
 let computerMove = '';
-function computerPlay () 
+let scoreObject = JSON.parse(localStorage.getItem('score'));
+let score = scoreObject || {
+  wins: 0,
+  losses: 0,
+  tie: 0
+}
+console.log(scoreObject!=null)
+function computerPlay ()
 {
   let randomNumber = Math.random();
   if ( randomNumber >= 0 && randomNumber < 1 / 3 )
@@ -35,7 +42,9 @@ function playerRock ()
     console.log( computerMove );
     result = "You Win!"
   }
-  alert( `You picked Rock, computer picked ${ computerMove }. ${ result }` );
+  scoreBoard(result);
+  alert( `You picked Rock, computer picked ${ computerMove }. ${ result }
+Wins: ${score.wins}, Losses: ${score.losses}, Tie: ${score.tie}` );
 }
 
 function playerPaper ()
@@ -54,7 +63,9 @@ function playerPaper ()
   {
     result = "You Loose!"
   }
-  alert( `You picked Paper, computer picked ${ computerMove }. ${ result }` );
+  scoreBoard(result);
+  alert( `You picked Paper, computer picked ${ computerMove }. ${ result }
+Wins: ${score.wins}, Losses: ${score.losses}, Tie: ${score.tie}` );
 }
 function playerScissors ()
 {
@@ -72,5 +83,23 @@ function playerScissors ()
   {
     result = "Tie."
   }
-  alert( `You picked Scissors, computer picked ${ computerMove }. ${ result }` );
+  scoreBoard(result);
+  alert( `You picked Scissors, computer picked ${ computerMove }. ${ result }
+Wins: ${score.wins}, Losses: ${score.losses}, Tie: ${score.tie}` );
+}
+
+function scoreBoard(result) {
+  if ( result === 'You Win!') {
+    score.wins ++;
+  }
+  else if ( result === 'You Loose!') {
+    score.losses ++;
+  }
+  else {
+    score.tie ++;
+  }
+  localStorage.setItem('score', JSON.stringify(score))
+}
+function resetScore() {
+  localStorage.removeItem('score');
 }
