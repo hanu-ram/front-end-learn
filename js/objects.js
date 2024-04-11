@@ -29,6 +29,7 @@ function fun2 ()
   return this;
 }
 
+
 // console.log( `fun 2 ${ fun2() }` );
 const person = {
   firstName: "John",
@@ -93,4 +94,3 @@ const exampleObject2 = {
 };
 console.log(exampleObject.variableInt);
 exampleObject2.method1();
-

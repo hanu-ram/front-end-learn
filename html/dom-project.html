@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM project</title>
+    <style>
+        .cs-game {
+            animation: forwards;
+            border-bottom-color: blueviolet;
+            font-style: oblique;
+            color: brown;
+            font-size: large;
+            font-family: "Arial Black";
+        }
+    </style>
+</head>
+<body>
+<p>YouTube Subscribe Button</p>
+<button class = 'js-subscribe-button' onclick="subscribe()">Subscribe</button>
+<br>
+<br>
+<p class="cs-game">Rock Paper Scissors Game</p>
+<a href="rock-paper-v2.html">Click here</a>
+<br>
+<br>
+<p>Amazon Shipping Calculator</p>
+<p>Orders over 500 RS are eligible for free delivery </p>
+<p>Orders below 500 RS should pay 50 RS for delivery</p>
+<input class="js-cost-input" placeholder="cost of order" onkeydown="addEventListener('keydown', costCalEnter)">
+<button onclick="calculateTotal()">Calculate</button>
+<input class = "test" onkeyup="
+test()">
+<p class = "test-p"></p>
+<p class = 'js-order-calculation'></p>
+<script>
+function subscribe() {
+    let subscribeButton = document.querySelector('.js-subscribe-button');
+    if (subscribeButton.innerHTML === 'Subscribe') {
+        subscribeButton.innerHTML = 'Subscribed';
+    } else {
+        subscribeButton.innerHTML = 'Subscribe';
+    }
+}
+function calculateTotal() {
+    let costOfOrder = document.querySelector('.js-cost-input').value;
+    if (costOfOrder) {
+    if (costOfOrder >= 500) {
+        document.querySelector('.js-order-calculation')
+            .innerHTML = `${costOfOrder} RS`;
+    }
+    else
+        {
+            document.querySelector('.js-order-calculation')
+                .innerHTML = `${50 + Number(costOfOrder)} RS`
+        }
+    }
+}
+function costCalEnter(event) {
+    if(event.key === 'Enter') {
+        calculateTotal();
+    }
+}
+function test() {
+    let value = document.querySelector(".test").value;
+    document.querySelector(".test-p").innerHTML = value;
+}
+</script>
+</body>
+</html>

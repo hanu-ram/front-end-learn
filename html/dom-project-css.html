@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM project</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+    .subscribe-button {
+        background-color: black;
+        color: white;
+        border: none;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-bottom: 30px;
+    }
+    .subscribed-style {
+        background-color: rgb(210, 210, 210);
+        color: black;
+    }
+    .cost-input {
+        font-size: 15px;
+        padding: 10px;
+    }
+    .calculate-button {
+        background-color: green;
+        color: white;
+        padding: 12px 15px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+<p>YouTube Subscribe Button</p>
+<button class = 'js-subscribe-button subscribe-button' onclick="subscribe()">Subscribe</button>
+<br>
+<br>
+<p>Amazon Shipping Calculator</p>
+<p>Orders over 500 RS are eligible for free delivery </p>
+<p>Orders below 500 RS should pay 50 RS for delivery</p>
+<input class="js-cost-input cost-input" placeholder="Cost Of Order" onkeydown="addEventListener('keydown', costCalEnter)">
+<button class = "calculate-button" onclick="calculateTotal()">Calculate</button>
+<p class = 'js-order-calculation'></p>
+<script>
+function subscribe() {
+    let subscribeButton = document.querySelector('.js-subscribe-button');
+    if (subscribeButton.innerHTML === 'Subscribe') {
+        subscribeButton.innerHTML = 'Subscribed';
+        subscribeButton.classList.add('subscribed-style');
+    } else {
+        subscribeButton.innerHTML = 'Subscribe';
+        subscribeButton.classList.remove('subscribed-style');
+    }
+}
+function calculateTotal() {
+    let costOfOrder = document.querySelector('.js-cost-input').value;
+    if (costOfOrder) {
+    if (costOfOrder >= 500) {
+        document.querySelector('.js-order-calculation')
+            .innerHTML = `${costOfOrder} RS`;
+    }
+    else
+        {
+            document.querySelector('.js-order-calculation')
+                .innerHTML = `${50 + Number(costOfOrder)} RS`
+        }
+    }
+}
+function costCalEnter(event) {
+    if(event.key === 'Enter') {
+        calculateTotal();
+    }
+}
+function test() {
+    let value = document.querySelector(".test").value;
+    document.querySelector(".test-p").innerHTML = value;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial;
+}
+.rock-paper-scissors {
+    font-size: 30px;
+    font-weight: 1000;
+    font-style: initial;
+}
+.move-image {
+    height: 50px;
+    width: 50px;
+}
+.move-button {
+    border-radius: 80px;
+    background-color: transparent;
+    border: 3px solid white;
+    width: 120px;
+    height: 120px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.result {
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 50px;
+}
+.reset-button {
+    padding: 8px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+.score {
+    margin-top: 50px;
+}

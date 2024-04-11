@@ -27,6 +27,7 @@ Object.defineProperty( object1, "add", {
   set: function ( v ) { this.t1 = this.t1 + v; }
 } )
 
+
 object1.reset;
 console.log( object1.t1 );
 object1.add = 5;
